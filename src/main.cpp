@@ -131,10 +131,10 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    const int width = 800;
-    const int height = 600;
+    const int width = 1280;
+    const int height = 720;
     SDL_Window* window = SDL_CreateWindow(
-        argv[0], SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width,
+        "Sandbox Prototype", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width,
         height, SDL_WINDOW_SHOWN);
 
     if (window == nullptr) {

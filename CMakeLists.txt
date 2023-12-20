@@ -15,14 +15,21 @@ if (SUPERBUILD)
   return()
 endif ()
 
-set(SDL2_DIR "lib/build/lib/cmake/SDL2")
+# For some reason windows compiles the SDL2 dirs to a different location than Linux? TODO Looking into this later
+# TODO cross-compiling/using one compiler (ninja) instead of using VS2022 on Windows and Make on Linux
+# TODO at some point run a crapintosh build
+if (WIN32)
+  set(SDL2_DIR "lib/build/cmake")
+else ()
+  set(SDL2_DIR "lib/build/lib/cmake/SDL2")
+endif ()
 set(bgfx_DIR "lib/build/lib/cmake/bgfx")
 set(imgui.cmake_DIR "lib/build/lib/cmake/imgui.cmake")
 find_package(SDL2 REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH)
 find_package(bgfx REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH)
 find_package(imgui.cmake REQUIRED CONFIG CMAKE_FIND_ROOT_PATH_BOTH)
 
-set(SOURCES 
+set(SOURCES
   src/main.cpp
 )
 
